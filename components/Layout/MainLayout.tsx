@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { AppShell } from '@mantine/core';
 import { Header } from './Header';
