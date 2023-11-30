@@ -1,41 +1,38 @@
-'use client';
-
 import { useState } from 'react';
-import { Container, Group, Burger } from '@mantine/core';
+import { Container, Group, Burger, Button } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Image from 'next/image';
 import classes from './Header.module.css';
 
-const links = [
-  { link: '/about', label: 'Features' },
-  { link: '/pricing', label: 'Pricing' },
-  { link: '/learn', label: 'Learn' },
-  { link: '/community', label: 'Community' },
+const buttons = [
+  { modal: 'BookNow', label: 'BookNow' },
+  { model: 'Call', label: 'Call' },
+  { modal: 'Contact', label: 'Contact' },
+  { modal: 'CustomerLogIn', label: 'LogIn' },
 ];
 
 export function Header() {
   const [opened, { toggle }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [active, setActive] = useState<string>();
 
-  const items = links.map((link) => (
-    <a
-      key={link.label}
-      href={link.link}
-      className={classes.link}
-      data-active={active === link.link || undefined}
+  const items = buttons.map((button) => (
+    <Button
+      key={button.label}
       onClick={(event) => {
         event.preventDefault();
-        setActive(link.link);
+        setActive(button.modal);
       }}
     >
-      {link.label}
-    </a>
+      {button.label}
+    </Button>
   ));
 
   return (
     <header className={classes.header}>
       <Container size="md" className={classes.inner}>
-        <Image src="/23-36.jpg" alt="Logo" width={120} height={40} />
+        <Image src="/23-36.jpg" alt="Logo" width={60} height={60} />
+
         <Group gap={5} visibleFrom="xs">
           {items}
         </Group>

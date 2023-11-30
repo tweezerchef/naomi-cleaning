@@ -8,7 +8,7 @@ interface ClientSideComponentProps {
   children: React.ReactNode;
 }
 
-const ClientSideComponent: React.FC<ClientSideComponentProps> = ({ children }) => (
+const MainLayout: React.FC<ClientSideComponentProps> = ({ children }) => (
   // Wrapper function to match MouseEventHandler type
 
   <AppShell header={{ height: 60 }} padding="md">
@@ -18,4 +18,4 @@ const ClientSideComponent: React.FC<ClientSideComponentProps> = ({ children }) =
     <AppShell.Main>{children}</AppShell.Main>
   </AppShell>
 );
-export default ClientSideComponent;
+export default MainLayout;
