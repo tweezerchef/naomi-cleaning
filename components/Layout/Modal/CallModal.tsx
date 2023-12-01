@@ -1,23 +1,23 @@
-import { useDisclosure, useMediaQuery } from '@mantine/hooks';
-import { Modal, Button } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
+import { Modal } from '@mantine/core';
 
-export default function CallModal() {
-  const [opened, { open, close }] = useDisclosure(false);
+type ModalProps = {
+  onClose(): void;
+};
+export default function CallModal({ onClose }: ModalProps) {
   const isMobile = useMediaQuery('(max-width: 50em)');
 
   return (
     <>
       <Modal
-        opened={opened}
-        onClose={close}
+        opened
+        onClose={onClose}
         title="This is a fullscreen modal"
         fullScreen={isMobile}
         transitionProps={{ transition: 'fade', duration: 200 }}
       >
-        The Modal will be full screen only on mobile
+        The Modal will be full screen only on mobile Call
       </Modal>
-
-      <Button onClick={open}>Open Modal</Button>
     </>
   );
 }
