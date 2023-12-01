@@ -2,7 +2,7 @@
 
 import { createTheme, MantineColorsTuple } from '@mantine/core';
 
-const myColor: MantineColorsTuple = [
+const pinkColors: MantineColorsTuple = [
   '#ffe9f6',
   '#ffd1e6',
   '#faa1c9',
@@ -14,9 +14,22 @@ const myColor: MantineColorsTuple = [
   '#c0005c',
   '#a9004f',
 ];
+const blueColors: MantineColorsTuple = [
+  '#ebefff',
+  '#d5dafc',
+  '#a9b1f1',
+  '#7b87e9',
+  '#5362e1',
+  '#3a4bdd',
+  '#2d3fdc',
+  '#1f32c4',
+  '#182cb0',
+  '#0b259c',
+];
 export const theme = createTheme({
   colors: {
-    myColor,
+    pinkColors,
+    blueColors,
   },
   /* Put your mantine theme override here */
 });

@@ -6,10 +6,10 @@ import { useDisclosure } from '@mantine/hooks';
 import Image from 'next/image';
 import classes from './Header.module.css';
 
-const BookNowModal = lazy(() => import('../components/Layout/Modal/BookNowModal'));
-const CallModal = lazy(() => import('../components/Layout/Modal/CallModal'));
-const ContactModal = lazy(() => import('../components/Layout/Modal/ContactModal'));
-const CustomerLoginModal = lazy(() => import('../components/Layout/Modal/CustomerLoginModal'));
+const BookNowModal = lazy(() => import('./Modal/BookNowModal'));
+const CallModal = lazy(() => import('./Modal/CallModal'));
+const ContactModal = lazy(() => import('./Modal/ContactModal'));
+const CustomerLoginModal = lazy(() => import('./Modal/CustomerLoginModal'));
 
 const buttons = [
   { modal: 'BookNow', label: 'BookNow' },
@@ -32,7 +32,7 @@ export default function Header() {
 
   const items = buttons.map((button) => (
     <Button
-      color="myColor.4"
+      color="pinkColors.4"
       radius="xl"
       key={button.label}
       onClick={() => openModal(button.modal)}
