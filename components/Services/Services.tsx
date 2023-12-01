@@ -1,6 +1,6 @@
 import { Text, SimpleGrid, Container, rem } from '@mantine/core';
 import { IconTruck, IconCertificate, IconCoin } from '@tabler/icons-react';
-import classes from './FeaturesAsymmetrical.module.css';
+import classes from './Services.module.css';
 
 interface FeatureProps extends React.ComponentPropsWithoutRef<'div'> {
   icon: React.FC<any>;
@@ -8,7 +8,7 @@ interface FeatureProps extends React.ComponentPropsWithoutRef<'div'> {
   description: string;
 }
 
-function Feature({ icon: Icon, title, description, className, ...others }: FeatureProps) {
+function Service({ icon: Icon, title, description, className, ...others }: FeatureProps) {
   return (
     <div className={classes.feature} {...others}>
       <div className={classes.overlay} />
@@ -47,8 +47,8 @@ const mockdata = [
   },
 ];
 
-export function FeaturesAsymmetrical() {
-  const items = mockdata.map((item) => <Feature {...item} key={item.title} />);
+export function Services() {
+  const items = mockdata.map((item) => <Service {...item} key={item.title} />);
 
   return (
     <Container mt={30} mb={30} size="lg">

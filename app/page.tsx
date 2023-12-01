@@ -1,11 +1,11 @@
-import { Welcome } from '../components/Welcome/Welcome';
-import { ColorSchemeToggle } from '../components/ColorSchemeToggle/ColorSchemeToggle';
+import { Testimonials } from '@/components/Testimonials/Testimonials';
+import { Services } from '@/components/Services/Services';
 
 export default function HomePage() {
   return (
     <>
-      <Welcome />
-      <ColorSchemeToggle />
+      <Services />
+      <Testimonials />
     </>
   );
 }
