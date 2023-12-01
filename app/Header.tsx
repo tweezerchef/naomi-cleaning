@@ -1,8 +1,15 @@
-import { useState } from 'react';
+'use client';
+
+import { useState, Suspense, lazy } from 'react';
 import { Container, Group, Burger, Button } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Image from 'next/image';
 import classes from './Header.module.css';
+
+const BookNowModal = lazy(() => import('../components/Layout/Modal/BookNowModal'));
+const CallModal = lazy(() => import('../components/Layout/Modal/CallModal'));
+const ContactModal = lazy(() => import('../components/Layout/Modal/ContactModal'));
+const CustomerLoginModal = lazy(() => import('../components/Layout/Modal/CustomerLoginModal'));
 
 const buttons = [
   { modal: 'BookNow', label: 'BookNow' },
@@ -11,7 +18,7 @@ const buttons = [
   { modal: 'CustomerLogIn', label: 'LogIn' },
 ];
 
-export function Header() {
+export default function Header() {
   const [opened, { toggle }] = useDisclosure(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [active, setActive] = useState<string>();
