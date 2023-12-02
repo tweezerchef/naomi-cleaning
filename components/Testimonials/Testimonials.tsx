@@ -3,28 +3,35 @@
 import { useRef } from 'react';
 import Autoplay from 'embla-carousel-autoplay';
 import { Carousel } from '@mantine/carousel';
-import { Center, Group } from '@mantine/core';
-import classes from './Testimonials.module.css';
+import { Group, useMantineTheme } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
+import { testimonialData } from './testimonialData';
+import { Card } from './components/Card';
+
+const slides = testimonialData.map((item) => (
+  <Carousel.Slide key={item.title}>
+    <Card {...item} />
+  </Carousel.Slide>
+));
 
 export function Testimonials() {
   const autoplay = useRef(Autoplay({ delay: 2000 }));
+  const theme = useMantineTheme();
+  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+
   return (
-    <Center>
-      <Carousel
-        withIndicators
-        height={200}
-        plugins={[autoplay.current]}
-        onMouseEnter={autoplay.current.stop}
-        onMouseLeave={autoplay.current.reset}
-        slideSize="100%"
-        classNames={{ container: classes.container }}
-      >
-        <Group justify="center">
-          <Carousel.Slide>1</Carousel.Slide>
-          <Carousel.Slide>2</Carousel.Slide>
-          <Carousel.Slide>3</Carousel.Slide>
-        </Group>
-      </Carousel>
-    </Center>
+    <Carousel
+      withIndicators
+      height={100}
+      plugins={[autoplay.current]}
+      onMouseEnter={autoplay.current.stop}
+      onMouseLeave={autoplay.current.reset}
+      slideSize={{ base: '40%', sm: '50%' }}
+      slideGap={{ base: 'xl', sm: 2 }}
+      align="start"
+      slidesToScroll={mobile ? 1 : 2}
+    >
+      <Group>{slides}</Group>
+    </Carousel>
   );
 }

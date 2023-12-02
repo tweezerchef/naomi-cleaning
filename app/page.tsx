@@ -5,7 +5,9 @@ export default function HomePage() {
   return (
     <>
       <Services />
-      <Testimonials />
+      <div style={{ height: 200 }}>
+        <Testimonials />
+      </div>
     </>
   );
 }
