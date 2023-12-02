@@ -12,14 +12,16 @@ export function Card({ image, title, testimonial }: CardProps) {
   return (
     <Paper shadow="md" p="lg" radius="md" className={classes.card}>
       <div>
-        <div className={classes.avatar}>
-          <Image
-            src={image}
-            alt={title}
-            layout="fill" // Make the image fill the container
-            objectFit="cover" // Cover the area without stretching the image
-            className={classes.image}
-          />
+        <div
+          style={{
+            width: 60, // Set the width of the avatar
+            height: 60, // Set the height of the avatar
+            borderRadius: '50%', // Make it circular
+            overflow: 'hidden', // Ensure the image doesn't overflow the circular shape
+            position: 'relative', // Relative position for the next/image component
+          }}
+        >
+          <Image src={image} alt={title} fill sizes="60px, 60px" className={classes.image} />
         </div>
         <Title order={3} className={classes.title}>
           {title}

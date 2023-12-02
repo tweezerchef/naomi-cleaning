@@ -1,3 +1,19 @@
-.container {
-  max-width: 1000px;
+.feature {
+  position: relative;
+  padding-top: var(--mantine-spacing-xl);
+  padding-left: var(--mantine-spacing-xl);
+}
+
+.overlay {
+  position: absolute;
+  height: rem(100px);
+  width: rem(160px);
+  top: 0;
+  left: 0;
+  background-color: var(--mantine-color-blue-light);
+  z-index: 1;
+}
+.content {
+  position: relative;
+  z-index: 2;
 }

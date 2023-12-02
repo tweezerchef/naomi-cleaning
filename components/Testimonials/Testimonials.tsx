@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import Autoplay from 'embla-carousel-autoplay';
 import { Carousel } from '@mantine/carousel';
-import { Group, useMantineTheme } from '@mantine/core';
+import { Container, useMantineTheme } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import { testimonialData } from './testimonialData';
 import { Card } from './components/Card';
@@ -22,16 +22,17 @@ export function Testimonials() {
   return (
     <Carousel
       withIndicators
-      height={100}
+      withControls
+      height={mobile ? 300 : 400}
       plugins={[autoplay.current]}
       onMouseEnter={autoplay.current.stop}
       onMouseLeave={autoplay.current.reset}
-      slideSize={{ base: '40%', sm: '50%' }}
-      slideGap={{ base: 'xl', sm: 2 }}
+      slideSize={mobile ? '100%' : '50%'}
+      // slideGap={{ base: 'xl', sm: 2 }}
       align="start"
       slidesToScroll={mobile ? 1 : 2}
     >
-      <Group>{slides}</Group>
+      {slides}
     </Carousel>
   );
 }

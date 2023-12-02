@@ -10,16 +10,12 @@ export const metadata = {
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <ColorSchemeScript />
-      </head>
-      <body>
-        <MantineProvider theme={theme}>
-          <Header />
-          {children}
-        </MantineProvider>
-      </body>
-    </html>
+    <>
+      <ColorSchemeScript forceColorScheme="light" />
+      <MantineProvider theme={theme} forceColorScheme="light">
+        <Header />
+        {children}
+      </MantineProvider>
+    </>
   );
 }

@@ -1,11 +1,8 @@
 .card {
-    height: rem(440px);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    background-size: cover;
-    background-position: center;
   }
 
   .title {
@@ -23,10 +20,10 @@
     font-weight: 700;
     text-transform: uppercase;
   }
-  .avatar {
-    width: rem(64px);
-    height: rem(64px);
-    border-radius: 50%;
-    border: 2px solid var(--mantine-color-white);
-    margin-right: var(--mantine-spacing-xs);
-  }
+  /* .avatar {
+    width: 60;
+    height: 60;
+    border-radius: 50;
+    overflow: 'hidden';
+    position: 'relative';
+  } */
