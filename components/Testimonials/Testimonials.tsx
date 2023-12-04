@@ -7,31 +7,32 @@ import { useMantineTheme } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import { testimonialData } from './testimonialData';
 import { Card } from './components/Card';
-
-const slides = testimonialData.map((item) => (
-  <Carousel.Slide key={item.title}>
-    <Card {...item} />
-  </Carousel.Slide>
-));
+import classes from './Testimonials.module.css';
 
 export function Testimonials() {
   const autoplay = useRef(Autoplay({ delay: 5000 }));
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
+  const slides = testimonialData.map((item) => (
+    <Carousel.Slide key={item.title}>
+      <Card {...item} />
+    </Carousel.Slide>
+  ));
+  const carouselClass = mobile ? classes.containerMobile : classes.containerDesktop;
+
   return (
     <Carousel
-      withIndicators
       withControls
-      height={mobile ? 300 : 400}
-      plugins={[autoplay.current]}
-      onMouseEnter={autoplay.current.stop}
-      onMouseLeave={autoplay.current.reset}
-      slideSize={mobile ? '100%' : '50%'}
-      // slideGap={{ base: 'xl', sm: 2 }}
+      height={mobile ? 150 : 210}
+      // plugins={[autoplay.current]}
+      // onMouseEnter={autoplay.current.stop}
+      // onMouseLeave={autoplay.current.reset}
+      slideSize={mobile ? '100%' : '70%'}
+      slideGap={mobile ? 'xs' : 'sm'}
       align="start"
-      slidesToScroll={mobile ? 1 : 2}
       loop
+      classNames={{ container: carouselClass }}
     >
       {slides}
     </Carousel>
