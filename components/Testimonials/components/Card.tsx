@@ -23,8 +23,8 @@ export function Card({ image, title, testimonial }: CardProps) {
       className={cardClass}
       style={{ backgroundColor: bgColor }}
     >
-      <Grid>
-        <Grid.Col span={2}>
+      <Grid gutter="sm">
+        <Grid.Col span={1}>
           <div
             style={{
               width: 60,
@@ -32,17 +32,16 @@ export function Card({ image, title, testimonial }: CardProps) {
               borderRadius: '50%',
               overflow: 'hidden',
               position: 'relative',
-              marginLeft: 15,
             }}
           >
-            <Image src={image} alt={title} fill sizes="60px, 60px" className={classes.image} />
+            <Image src={image} alt={title} fill sizes="60px, 60px" />
           </div>
         </Grid.Col>
-        <Grid.Col span={9}>
+        <Grid.Col span={10} offset={1}>
           <Title order={3} className={classes.title}>
             {title}
           </Title>
-          <Text fz="sm" mt="sm">
+          <Text fz="sm" mt="sm" lineClamp={5}>
             {testimonial}
           </Text>
         </Grid.Col>

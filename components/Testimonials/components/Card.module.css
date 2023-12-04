@@ -3,14 +3,17 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    height: 200px;
+    height: 180px;
+    max-width: 'fit-content';
+
   }
   .cardMobile {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    height: 150px;
+    height: 250px;
+    max-width: fit-content;
   }
 
 
