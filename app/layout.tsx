@@ -1,5 +1,6 @@
 import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
+import '@mantine/dates/styles.css';
 import React from 'react';
 import { MantineProvider, ColorSchemeScript, Container } from '@mantine/core';
 import Header from '../components/Layout/Header';
